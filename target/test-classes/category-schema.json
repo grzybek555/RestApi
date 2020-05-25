@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "category": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "parent",
+        "leaf",
+        "options"
+      ],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "parent": {"type": "null"},
+        "leaf": {"type": "boolean"},
+        "options": {
+          "type": "object",
+          "properties": {
+            "variantsByColorPatternAllowed":{"type": "boolean"},
+            "advertisement": {"type": "boolean"},
+            "advertisementPriceOptional": {"type": "boolean"},
+            "offersWithProductPublicationEnabled": {"type": "boolean"},
+            "productCreationEnabled": {"type": "boolean"},
+            "productEANRequired": {"type": "boolean"}
+          }
+        }
+      }
+    }
+  }
+}
