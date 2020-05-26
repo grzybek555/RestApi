@@ -13,7 +13,7 @@ public class CategoriesTests extends TestBase {
     Logger logger = Logger.getLogger(CategoriesTests.class);
 
     @Test
-    public void checkCorrectCategoriesRequestStatusCode(){
+    public void tc01_checkCorrectCategoriesRequestStatusCode(){
 
         getAuthorizedRequest()
                 .when()
@@ -22,7 +22,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkCategoriesResponseWithoutAuthentication(){
+    public void tc02_checkCategoriesResponseWithoutAuthentication(){
         getUnauthorizedRequest()
                 .when()
                     .get(CATEGORIES_API_PATH)
@@ -32,7 +32,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkCategoriesResponseSchema(){
+    public void tc03_checkCategoriesResponseSchema(){
         getAuthorizedRequest()
                 .when()
                     .get(CATEGORIES_API_PATH)
@@ -42,7 +42,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkNotAllowedMethodOnCategoriesPath(){
+    public void tc04_checkNotAllowedMethodOnCategoriesPath(){
         getAuthorizedRequest()
                 .when()
                     .post(CATEGORIES_API_PATH)
@@ -51,7 +51,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkGettingCategoryByCorrectId(){
+    public void tc05_checkGettingCategoryByCorrectId(){
         JSONObject testBaseObject = getObjectArrayFromRequest(CATEGORIES_API_PATH, "categories").getJSONObject(0);
         Response response = getAuthorizedRequest()
                 .when()
@@ -64,7 +64,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkNotAllowedMethodOnCategoryById(){
+    public void tc06_checkNotAllowedMethodOnCategoryById(){
         JSONObject testBaseObject = getObjectArrayFromRequest(CATEGORIES_API_PATH, "categories").getJSONObject(0);
         getAuthorizedRequest()
                 .when()
@@ -74,7 +74,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkGettingCategoryByCorrectIdSchema(){
+    public void tc07_checkGettingCategoryByCorrectIdSchema(){
         JSONObject testBaseObject = getObjectArrayFromRequest(CATEGORIES_API_PATH, "categories").getJSONObject(0);
         getAuthorizedRequest()
                 .when()
@@ -85,7 +85,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkGettingCategoryByIncorrectId(){
+    public void tc08_checkGettingCategoryByIncorrectId(){
         getAuthorizedRequest()
                 .when()
                     .get(CATEGORIES_API_PATH+"incorrectId")
@@ -94,7 +94,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkCorrectCategoryParameterStatusCode(){
+    public void tc09_checkCorrectCategoryParameterStatusCode(){
         JSONObject testBaseObject = getObjectArrayFromRequest(CATEGORIES_API_PATH, "categories").getJSONObject(0);
         getAuthorizedRequest()
                 .when()
@@ -104,7 +104,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkIncorrectCategoryParameterStatusCode(){
+    public void tc10_checkIncorrectCategoryParameterStatusCode(){
         getAuthorizedRequest()
                 .when()
                 .get(CATEGORIES_API_PATH+"testIncorrect/parameters")
@@ -113,7 +113,7 @@ public class CategoriesTests extends TestBase {
     }
 
     @Test
-    public void checkNotAllowedMethodOnCategoryParameter(){
+    public void tc11_checkNotAllowedMethodOnCategoryParameter(){
         JSONObject testBaseObject = getObjectArrayFromRequest(CATEGORIES_API_PATH, "categories").getJSONObject(0);
         getAuthorizedRequest()
                 .when()
